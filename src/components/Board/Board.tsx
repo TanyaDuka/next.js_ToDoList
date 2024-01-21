@@ -6,8 +6,9 @@ import Header from "@/components/Header/Header";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useSearchForIdQuery } from "@/redux/slice/boardSlice";
+import { ICard } from "@/types/apiBoard";
 
-const Board = () => {
+const Board: React.FC = () => {
   const pathname = usePathname();
   const id = pathname?.split("/").pop();
 
@@ -49,17 +50,19 @@ const Board = () => {
         <Header />
       </div>
       <h1 className="text-3xl font-semibold text-center mb-4">
-        {boardData.name}
+        {boardData.data[0].name}
       </h1>
       <div className="flex space-x-4">
-        {Object.entries(boardData?.data[0].cards).map(([key, column]) => (
-          <Column
-            key={key}
-            mainTitle={key}
-            tasks={column}
-            boardId={String(id)}
-            refetch={refetch}
-          />
+        {Object.entries(boardData?.data[0].cards).map(([key, cards]) => (
+          
+            <Column
+              key={key}
+              mainTitle={key}
+              tasks={cards as unknown as ICard[]}
+              boardId={String(id)}
+              refetch={refetch}
+            />
+          
         ))}
       </div>
     </div>

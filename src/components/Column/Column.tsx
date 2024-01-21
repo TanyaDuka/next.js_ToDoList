@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Card from "@/components/Card/Card";
-import { ICard } from "@/types/apiBoard";
+import { IBoard, ICard } from "@/types/apiBoard";
 import AddCardModal from "@/components/Modals/AddCardModal";
 import {
   useCreateCardMutation,
@@ -126,7 +126,7 @@ const Column: React.FC<ColumnProps> = ({
           onChangePosition={(direction, cardId) =>
             handleDirectionClick(direction, cardId)
           }
-          draggable="true"
+          draggable={true}
           onDragStart={(e) => {
             const dragData = JSON.stringify({
               id: task._id,

@@ -18,7 +18,6 @@ export interface IBoardCreateRequest {
 }
 
 export interface ApiResponse<T> {
-  name: string;
   data?: T;
   error?: string;
 }
