@@ -63,7 +63,7 @@ const Card: React.FC<CardProps> = ({
     >
       <div className="flex justify-between items-center">
         <h3 className="text-2xl font-semibold text-black">{title}</h3>
-        <div>
+        <div className="w-48 text-right">
           {!isFirst && (
             <span
               className="p-2 bg-gray-300 rounded cursor-pointer hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
